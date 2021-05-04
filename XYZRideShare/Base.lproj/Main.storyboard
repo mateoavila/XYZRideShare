@@ -229,7 +229,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Rate"/>
                                 <connections>
-                                    <action selector="rateButtonTapped:" destination="SyU-hY-NSj" eventType="touchUpInside" id="HNZ-Qj-0Ro"/>
+                                    <action selector="rateButtonTapped:" destination="SyU-hY-NSj" eventType="touchUpInside" id="6Cx-B8-TJm"/>
+                                    <segue destination="Zwr-RK-AHV" kind="show" id="cgv-we-ZId"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="psx-3j-kBh">
+                                <rect key="frame" x="30" y="732" width="354" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Pt6-3B-e6Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Next Customer"/>
+                                <connections>
+                                    <action selector="nextCustomerTapped:" destination="SyU-hY-NSj" eventType="touchUpInside" id="RVq-eb-9Rj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -242,22 +254,28 @@
                             <constraint firstItem="Uex-ZR-u11" firstAttribute="centerX" secondItem="R6D-Uu-7gK" secondAttribute="centerX" id="EOh-Hf-duc"/>
                             <constraint firstItem="YDJ-J4-Usb" firstAttribute="centerX" secondItem="R6D-Uu-7gK" secondAttribute="centerX" id="HxW-oo-aYH"/>
                             <constraint firstItem="mc7-b2-gt5" firstAttribute="bottom" secondItem="lWR-e0-gEq" secondAttribute="bottom" constant="371" id="Hyf-g3-JiD"/>
+                            <constraint firstItem="psx-3j-kBh" firstAttribute="leading" secondItem="mc7-b2-gt5" secondAttribute="leading" constant="30" id="IIa-L2-vL9"/>
                             <constraint firstItem="mc7-b2-gt5" firstAttribute="trailing" secondItem="fge-pp-NF3" secondAttribute="trailing" constant="30" id="Mei-k8-bRM"/>
                             <constraint firstItem="mc7-b2-gt5" firstAttribute="bottom" secondItem="fge-pp-NF3" secondAttribute="bottom" constant="20" id="RlE-po-aAJ"/>
                             <constraint firstItem="lWR-e0-gEq" firstAttribute="leading" secondItem="8ig-Sq-vDy" secondAttribute="trailing" constant="8" id="TjC-Yr-oYI"/>
+                            <constraint firstItem="fge-pp-NF3" firstAttribute="top" secondItem="psx-3j-kBh" secondAttribute="bottom" constant="20" id="cKa-5E-DRc"/>
                             <constraint firstItem="Uex-ZR-u11" firstAttribute="top" secondItem="8ig-Sq-vDy" secondAttribute="bottom" constant="70" id="dkX-oU-aQv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lWR-e0-gEq" secondAttribute="trailing" constant="-34" id="ehQ-e0-DQj"/>
                             <constraint firstAttribute="bottom" secondItem="8ig-Sq-vDy" secondAttribute="bottom" constant="442" id="j9Z-wi-Aer"/>
+                            <constraint firstItem="mc7-b2-gt5" firstAttribute="trailing" secondItem="psx-3j-kBh" secondAttribute="trailing" constant="30" id="npM-f7-kG7"/>
                             <constraint firstItem="lWR-e0-gEq" firstAttribute="bottom" secondItem="OrT-JK-eES" secondAttribute="bottom" id="tN8-y8-aT3"/>
                             <constraint firstItem="YDJ-J4-Usb" firstAttribute="top" secondItem="mc7-b2-gt5" secondAttribute="top" constant="30" id="v12-NG-Wod"/>
                             <constraint firstItem="8ig-Sq-vDy" firstAttribute="centerY" secondItem="OrT-JK-eES" secondAttribute="centerY" id="wzV-0B-oNr"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="acceptText" destination="BMw-XT-OaD" id="xe2-Mw-ewv"/>
                         <outlet property="arivedText" destination="Uex-ZR-u11" id="fcz-gF-ahI"/>
-                        <outlet property="continueButton" destination="fge-pp-NF3" id="Zlb-5l-3LL"/>
+                        <outlet property="nextCustomerButton" destination="psx-3j-kBh" id="Oxx-vm-MSp"/>
                         <outlet property="progressBar" destination="8ig-Sq-vDy" id="hQW-VG-VmD"/>
+                        <outlet property="rateButton" destination="fge-pp-NF3" id="kfe-GO-JKn"/>
                         <outlet property="startDriveButton" destination="XkL-9I-mUp" id="lvX-Zm-UId"/>
+                        <outlet property="tripRequestText" destination="2bS-V9-Qob" id="2Fd-px-XG0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VrZ-zS-Qnc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -288,21 +306,21 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6xj-t6-rTW">
-                                <rect key="frame" x="29.5" y="74" width="355" height="141.5"/>
+                                <rect key="frame" x="29" y="74" width="356" height="141.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Rider, where do you want to go?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAp-f1-A9C">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="26.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Rider, where do you want to go?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAp-f1-A9C">
+                                        <rect key="frame" x="0.0" y="0.0" width="356" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PZ9-vY-iyN">
-                                        <rect key="frame" x="0.0" y="46.5" width="355" height="35"/>
+                                        <rect key="frame" x="0.0" y="46.5" width="356" height="35"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Let-6T-oIT">
-                                        <rect key="frame" x="0.0" y="101.5" width="355" height="40"/>
+                                        <rect key="frame" x="0.0" y="101.5" width="356" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="4SE-SP-3o6"/>
                                         </constraints>
@@ -353,10 +371,12 @@
                             <constraint firstItem="cFv-0E-K9B" firstAttribute="leading" secondItem="wDc-fr-dWr" secondAttribute="leading" constant="30" id="1jm-fd-zvi"/>
                             <constraint firstItem="6xj-t6-rTW" firstAttribute="top" secondItem="wDc-fr-dWr" secondAttribute="top" constant="30" id="3IZ-Up-rdn"/>
                             <constraint firstItem="LWH-Re-SuQ" firstAttribute="leading" secondItem="wDc-fr-dWr" secondAttribute="leading" constant="3" id="4dI-iA-tWv"/>
+                            <constraint firstItem="6xj-t6-rTW" firstAttribute="leading" secondItem="wDc-fr-dWr" secondAttribute="leading" constant="29" id="EUo-wj-wxK"/>
                             <constraint firstItem="y3g-ao-qwg" firstAttribute="centerY" secondItem="bNc-FR-Rd2" secondAttribute="centerY" id="FLl-nH-cUN"/>
                             <constraint firstItem="y3g-ao-qwg" firstAttribute="leading" secondItem="wDc-fr-dWr" secondAttribute="leading" constant="74" id="Iib-UG-cQV"/>
                             <constraint firstItem="mm6-Fa-kNh" firstAttribute="leading" secondItem="wDc-fr-dWr" secondAttribute="leading" constant="30" id="KhN-px-d38"/>
                             <constraint firstItem="F8y-kL-F6A" firstAttribute="top" secondItem="y3g-ao-qwg" secondAttribute="bottom" constant="64" id="NQB-f1-cNI"/>
+                            <constraint firstItem="wDc-fr-dWr" firstAttribute="trailing" secondItem="6xj-t6-rTW" secondAttribute="trailing" constant="29" id="Nu8-7r-BnR"/>
                             <constraint firstItem="F8y-kL-F6A" firstAttribute="centerX" secondItem="pDu-Qo-hDV" secondAttribute="centerX" id="OuB-8b-YRM"/>
                             <constraint firstItem="6xj-t6-rTW" firstAttribute="centerX" secondItem="pDu-Qo-hDV" secondAttribute="centerX" id="PZC-mR-ogz"/>
                             <constraint firstItem="wDc-fr-dWr" firstAttribute="bottom" secondItem="mm6-Fa-kNh" secondAttribute="bottom" constant="20" id="UAw-br-ZvC"/>
@@ -377,6 +397,7 @@
                         <outlet property="newRideButton" destination="cFv-0E-K9B" id="fPy-aE-qyD"/>
                         <outlet property="progressBar" destination="y3g-ao-qwg" id="bu0-wC-piW"/>
                         <outlet property="rateButton" destination="mm6-Fa-kNh" id="qsY-EV-Agi"/>
+                        <outlet property="topText" destination="eAp-f1-A9C" id="8zT-Xh-FCG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="prZ-wI-WFw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -520,6 +541,9 @@
             <point key="canvasLocation" x="28.985507246376812" y="83.705357142857139"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="cgv-we-ZId"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="car" catalog="system" width="128" height="93"/>
         <image name="mappin" catalog="system" width="105" height="128"/>

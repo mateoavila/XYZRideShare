@@ -9,10 +9,13 @@ import UIKit
 
 class DriverViewController: UIViewController {
 
+    @IBOutlet weak var tripRequestText: UILabel!
+    @IBOutlet weak var acceptText: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var arivedText: UILabel!
     @IBOutlet weak var startDriveButton: UIButton!
-    @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var rateButton: UIButton!
+    @IBOutlet weak var nextCustomerButton: UIButton!
     
     var timer = Timer()
     
@@ -20,13 +23,17 @@ class DriverViewController: UIViewController {
         super.viewDidLoad()
         arivedText.alpha = 0
         progressBar.progress = 0.0
+        nextCustomerButton.alpha = 0
+        Utilities.styleFilledButton(nextCustomerButton)
         Utilities.styleFilledButton(startDriveButton)
-        Utilities.styleHollowButton(continueButton)
-        continueButton.alpha = 0
+        Utilities.styleHollowButton(rateButton)
+        rateButton.alpha = 0
     }
     
 
     @IBAction func startDriveTapped(_ sender: Any) {
+        tripRequestText.alpha = 0
+        acceptText.text = "Ride Accepted"
         var progress: Float = 0.0
         progressBar.progress = progress
         
@@ -36,8 +43,9 @@ class DriverViewController: UIViewController {
             self.progressBar.progress = progress
             
             if  self.progressBar.progress == 1.0{
-                self.continueButton.alpha = 1
-
+                self.acceptText.alpha = 0
+                self.rateButton.alpha = 1
+                self.nextCustomerButton.alpha = 1
                 self.arivedText.alpha = 1
                 
                 
@@ -50,9 +58,18 @@ class DriverViewController: UIViewController {
     }
     
     @IBAction func rateButtonTapped(_ sender: Any) {
-        self.progressBar.progress = 0.0
-        self.arivedText.alpha = 0
-        
     }
     
+    @IBAction func nextCustomerTapped(_ sender: Any) {
+        transitionDriveScreen()
+
+    }
+    
+    
+    func transitionDriveScreen() {
+        let driverViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.driverViewController) as? DriverViewController
+        
+        view.window?.rootViewController = driverViewController
+        view.window?.makeKeyAndVisible()
+    }
 }
