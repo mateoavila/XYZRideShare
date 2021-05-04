@@ -51,31 +51,32 @@ class LogInViewController: UIViewController {
             }else{
               print("loged in")
             
+                let currentUser = Auth.auth().currentUser!.uid
+                print("currentUser is \(currentUser)")
+                let docRef = Firestore.firestore().collection("users").document(currentUser)
+
+                        docRef.getDocument(source: .cache) { (document, error) in
+                            if let document = document {
+                                self.useCase = document.get("useCase") as! String
+                                print("useCase is === \(self.useCase)")
+                               
+                               if self.useCase == "rider" {
+                                   self.transitionRideScreen()
+                                   print("going to \(self.useCase) screen")
+                               }else{
+                                   self.transitionDriveScreen()
+                                   print("going to \(self.useCase) screen")
+                               }
+                               
+                               
+                            } else {
+                                print("Document does not exist in cache")
+                            }
+                        }
+                
             }
             
-             let currentUser = Auth.auth().currentUser!.uid
-             print("currentUser is \(currentUser)")
-             let docRef = Firestore.firestore().collection("users").document(currentUser)
-
-                     docRef.getDocument(source: .cache) { (document, error) in
-                         if let document = document {
-                             self.useCase = document.get("useCase") as! String
-                             print("useCase is === \(self.useCase)")
-                            
-                            if self.useCase == "rider" {
-                                self.transitionRideScreen()
-                                print("going to \(self.useCase) screen")
-                            }else{
-                                self.transitionDriveScreen()
-                                print("going to \(self.useCase) screen")
-                            }
-                            
-                            
-                         } else {
-                             print("Document does not exist in cache")
-                         }
-                     }
-            
+             
         }
         
        
