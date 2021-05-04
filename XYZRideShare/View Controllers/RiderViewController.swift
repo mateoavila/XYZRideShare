@@ -58,7 +58,7 @@ class RiderViewController: UIViewController {
             
         })
         let db = Firestore.firestore()
-        db.collection("transaction").addDocument(data: ["rider" : Auth.auth().currentUser?.uid, "payment": 10])
+        db.collection("transaction").addDocument(data: ["rider" : Auth.auth().currentUser?.uid, "payment": 10, "location": locationText.text])
         
     }
     
