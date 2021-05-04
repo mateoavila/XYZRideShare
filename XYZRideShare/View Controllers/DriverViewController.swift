@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
+import Firebase
 
 class DriverViewController: UIViewController {
 
@@ -54,6 +57,8 @@ class DriverViewController: UIViewController {
             }
             
         })
+        let db = Firestore.firestore()
+        db.collection("transaction").addDocument(data: ["driver" : Auth.auth().currentUser?.uid, "payment": 10])
         
     }
     

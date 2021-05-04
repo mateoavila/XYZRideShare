@@ -53,7 +53,7 @@ class LogInViewController: UIViewController {
             
             }
             
-            let currentUser = Auth.auth().currentUser!.uid
+             let currentUser = Auth.auth().currentUser!.uid
              print("currentUser is \(currentUser)")
              let docRef = Firestore.firestore().collection("users").document(currentUser)
 

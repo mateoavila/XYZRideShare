@@ -80,7 +80,7 @@ class SignUpViewController: UIViewController {
                     // user added and stored
                     let db = Firestore.firestore()
                     
-                    db.collection("users").document(result!.user.uid).setData(["firstName" : firstName, "lastName": lastName, "useCase": self.useCase, "uid": result!.user.uid])
+                    db.collection("users").document(result!.user.uid).setData(["firstName" : firstName, "lastName": lastName, "useCase": self.useCase, "uid": result!.user.uid, "email": email, "address": "*****", "number": "(***) ***-****", "userRating": 5])
                     
                 
                     

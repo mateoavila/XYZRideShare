@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
+import Firebase
 
 class RiderViewController: UIViewController {
     
@@ -54,6 +57,8 @@ class RiderViewController: UIViewController {
             }
             
         })
+        let db = Firestore.firestore()
+        db.collection("transaction").addDocument(data: ["rider" : Auth.auth().currentUser?.uid, "payment": 10])
         
     }
     
