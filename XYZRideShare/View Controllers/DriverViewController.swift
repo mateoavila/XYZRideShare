@@ -49,5 +49,10 @@ class DriverViewController: UIViewController {
         
     }
     
-
+    @IBAction func rateButtonTapped(_ sender: Any) {
+        self.progressBar.progress = 0.0
+        self.arivedText.alpha = 0
+        
+    }
+    
 }

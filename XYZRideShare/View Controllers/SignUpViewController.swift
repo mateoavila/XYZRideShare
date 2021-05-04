@@ -82,12 +82,7 @@ class SignUpViewController: UIViewController {
                     
                     db.collection("users").document(result!.user.uid).setData(["firstName" : firstName, "lastName": lastName, "useCase": self.useCase, "uid": result!.user.uid])
                     
-                    /*db.collection("users").addDocument(data: ["firstName" : firstName, "lastName": lastName, "useCase": self.useCase, "uid": result!.user.uid]) { error in
-                        if error != nil {
-                            self.displayError("something went wrong saving user data")
-                            
-                        }
-                    }*/
+                
                     
                     // MOVE TO HOME
                     if self.useCase == "rider" {

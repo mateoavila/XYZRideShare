@@ -229,7 +229,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Rate"/>
                                 <connections>
-                                    <segue destination="Zwr-RK-AHV" kind="show" id="nkf-ZV-xHa"/>
+                                    <action selector="rateButtonTapped:" destination="SyU-hY-NSj" eventType="touchUpInside" id="HNZ-Qj-0Ro"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -335,10 +335,22 @@
                                     <segue destination="Zwr-RK-AHV" kind="show" id="5KL-hD-31G"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFv-0E-K9B">
+                                <rect key="frame" x="30" y="732" width="354" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Zwm-dJ-EJ9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="New Ride"/>
+                                <connections>
+                                    <action selector="newRideButtonTapped:" destination="uAj-vv-tIh" eventType="touchUpInside" id="RxR-N6-LAp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wDc-fr-dWr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="cFv-0E-K9B" firstAttribute="leading" secondItem="wDc-fr-dWr" secondAttribute="leading" constant="30" id="1jm-fd-zvi"/>
                             <constraint firstItem="6xj-t6-rTW" firstAttribute="top" secondItem="wDc-fr-dWr" secondAttribute="top" constant="30" id="3IZ-Up-rdn"/>
                             <constraint firstItem="LWH-Re-SuQ" firstAttribute="leading" secondItem="wDc-fr-dWr" secondAttribute="leading" constant="3" id="4dI-iA-tWv"/>
                             <constraint firstItem="y3g-ao-qwg" firstAttribute="centerY" secondItem="bNc-FR-Rd2" secondAttribute="centerY" id="FLl-nH-cUN"/>
@@ -348,11 +360,13 @@
                             <constraint firstItem="F8y-kL-F6A" firstAttribute="centerX" secondItem="pDu-Qo-hDV" secondAttribute="centerX" id="OuB-8b-YRM"/>
                             <constraint firstItem="6xj-t6-rTW" firstAttribute="centerX" secondItem="pDu-Qo-hDV" secondAttribute="centerX" id="PZC-mR-ogz"/>
                             <constraint firstItem="wDc-fr-dWr" firstAttribute="bottom" secondItem="mm6-Fa-kNh" secondAttribute="bottom" constant="20" id="UAw-br-ZvC"/>
+                            <constraint firstItem="mm6-Fa-kNh" firstAttribute="top" secondItem="cFv-0E-K9B" secondAttribute="bottom" constant="20" id="VH7-7a-MNV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bNc-FR-Rd2" secondAttribute="trailing" constant="-38" id="ds9-gK-lmT"/>
                             <constraint firstItem="wDc-fr-dWr" firstAttribute="trailing" secondItem="mm6-Fa-kNh" secondAttribute="trailing" constant="30" id="fnk-cN-Fba"/>
                             <constraint firstItem="bNc-FR-Rd2" firstAttribute="bottom" secondItem="LWH-Re-SuQ" secondAttribute="bottom" id="gqp-nT-mOA"/>
                             <constraint firstItem="wDc-fr-dWr" firstAttribute="bottom" secondItem="bNc-FR-Rd2" secondAttribute="bottom" constant="377" id="hyS-uH-7Ha"/>
                             <constraint firstItem="y3g-ao-qwg" firstAttribute="centerY" secondItem="pDu-Qo-hDV" secondAttribute="centerY" id="i9d-Z8-N2V"/>
+                            <constraint firstItem="wDc-fr-dWr" firstAttribute="trailing" secondItem="cFv-0E-K9B" secondAttribute="trailing" constant="30" id="pnA-Z6-52h"/>
                             <constraint firstItem="y3g-ao-qwg" firstAttribute="centerX" secondItem="pDu-Qo-hDV" secondAttribute="centerX" id="qWf-Yb-MH4"/>
                         </constraints>
                     </view>
@@ -360,6 +374,7 @@
                         <outlet property="arivedText" destination="F8y-kL-F6A" id="PaT-Bq-eEM"/>
                         <outlet property="bookTripButton" destination="Let-6T-oIT" id="tIN-RR-Gkv"/>
                         <outlet property="locationText" destination="PZ9-vY-iyN" id="HVh-8g-DGU"/>
+                        <outlet property="newRideButton" destination="cFv-0E-K9B" id="fPy-aE-qyD"/>
                         <outlet property="progressBar" destination="y3g-ao-qwg" id="bu0-wC-piW"/>
                         <outlet property="rateButton" destination="mm6-Fa-kNh" id="qsY-EV-Agi"/>
                     </connections>
@@ -447,6 +462,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Qtt-2u-d1Z"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Log In"/>
                                         <connections>
                                             <action selector="logInTapped:" destination="dVg-hv-7Io" eventType="touchUpInside" id="5qM-LU-GLa"/>
@@ -504,9 +520,6 @@
             <point key="canvasLocation" x="28.985507246376812" y="83.705357142857139"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="5KL-hD-31G"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="car" catalog="system" width="128" height="93"/>
         <image name="mappin" catalog="system" width="105" height="128"/>
